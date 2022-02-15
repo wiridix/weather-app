@@ -22,13 +22,13 @@ export const App = () => {
             <Row
                 justify="center"
                 align="middle"
-                style={{ padding: "40px" }}
+                style={{ padding: "50px" }}
                 gutter={[0, 15]}
             >
-                <Col xs={24}>
+                <Col xs={24} md={12}>
                     <FormSearch />
                 </Col>
-                <Col xs={24}>
+                <Col xs={24} md={24}>
                     {errorList.error ? (
                         <Alert
                             message={errorList.msg}
@@ -37,10 +37,10 @@ export const App = () => {
                             afterClose={onClose}
                         />
                     ) : (
-                        ""
+                        <></>
                     )}
                 </Col>
-                <Col xs={24}>
+                <Col xs={24} md={12}>
                     <CardWeather />
                 </Col>
             </Row>
