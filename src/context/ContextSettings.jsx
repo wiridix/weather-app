@@ -1,7 +1,7 @@
 import React, { createContext, useState } from "react";
 import axios from "axios";
 
-const appid = "6cf47ec74dc5194c0048d9469bf8d2e2";
+const appid = process.env.REACT_APP_APIKEY;
 export const Context = createContext({});
 
 export const ContextSettings = ({ children }) => {
