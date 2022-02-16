@@ -1,22 +1,18 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { Col, Row, Alert } from "antd";
-import { CardWeather } from "./components/CardWeather";
-import FormSearch from "./components/Form"
-
-import "./App.css";
 import { Context } from "./context/ContextSettings";
+import FormSearch from "./components/Form";
+import CardWeather from "./components/Card";
+import "./App.css";
 
 export const App = () => {
-    const { defaultCity, errorList, seterrorList } = useContext(Context);
+    const { errorList, seterrorList } = useContext(Context);
     const onClose = () => {
         seterrorList({
-            error:false,
-            msg: ''
+            error: false,
+            msg: "",
         });
     };
-    useEffect(() => {
-        defaultCity();
-    }, []);
     return (
         <>
             <Row

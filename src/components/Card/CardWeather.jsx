@@ -1,10 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Col, Row, Card, Divider, Typography } from "antd";
-import { Context } from "../context/ContextSettings";
 const { Title, Text } = Typography;
 
-export const CardWeather = () => {
-    const { clima, loadingCard } = useContext(Context);
+export const CardW = ({clima,loadingCard}) => {
     let timeData = new Date(clima.dt * 1000).toDateString();
     let visibility = (clima.visibility / 1000).toFixed(1);
     let temp = clima.temp.toFixed();

@@ -15,5 +15,5 @@ export default function FormSearch() {
                 city={city}
             />
         );
-    }, [listCity, handleChange, handlePeticion, handleCity, city ]);
+    }, [listCity, city]);
 }

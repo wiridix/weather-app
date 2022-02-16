@@ -8,7 +8,6 @@ export const ContextSettings = ({ children }) => {
     const [listCity, setListCity] = useState([]);
     let [city, setCity] = useState("");
 
-
     const [clima, setClima] = useState({
         name: "",
         country: "",
@@ -18,43 +17,40 @@ export const ContextSettings = ({ children }) => {
         pressure: 0,
         humidity: 0,
         wind: 0,
-        visibility: 0
+        visibility: 0,
     });
-    const [loadingCard,setloadingCard] = useState(true)
+    const [loadingCard, setloadingCard] = useState(true);
     const [errorList, seterrorList] = useState({
-        error:false,
-        msg:''
-    })
+        error: false,
+        msg: "",
+    });
 
     const lstCity = async (city) => {
-
         try {
             const res = await axios.get(
                 `https://api.openweathermap.org/data/2.5/find?q=${city}&appid=${appid}`
             );
-            const listaCity = await res.data.list
-    
-            if(listaCity.length !== 0 ){
+            const listaCity = await res.data.list;
+
+            if (listaCity.length !== 0) {
                 setListCity(res.data.list);
-            }else{
+            } else {
                 seterrorList({
-                    error:true,
-                    msg:'City no found'
-                })
-            }      
+                    error: true,
+                    msg: "City no found",
+                });
+            }
         } catch (error) {
             seterrorList({
-                error:true,
-                msg:'ERROR NETWORK'
-            })
-            
+                error: true,
+                msg: "ERROR NETWORK",
+            });
         }
     };
 
     const getClimaId = async (id) => {
         try {
             const url = `https://api.openweathermap.org/data/2.5/weather?id=${id}&units=metric&appid=${appid}`;
-    
             const res = await axios.get(url);
             setClima({
                 name: res.data.name,
@@ -68,21 +64,19 @@ export const ContextSettings = ({ children }) => {
                 wind: res.data.wind.speed,
                 visibility: res.data.visibility,
             });
-            
-            setloadingCard(false)
-            
+
+            setloadingCard(false);
         } catch (error) {
             seterrorList({
-                error:true,
-                msg:'ERROR NETWORK'
-            })
-            
+                error: true,
+                msg: "ERROR NETWORK",
+            });
         }
     };
 
-    function defaultCity(){
-        const italy = 3175395
-        getClimaId(italy)
+    function defaultCity() {
+        const italy = 3175395;
+        getClimaId(italy);
     }
 
     const handleChange = (e) => {
