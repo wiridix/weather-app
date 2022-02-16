@@ -2,17 +2,15 @@ import React, { useContext } from "react";
 import { Form, Button } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import { AutoComplete } from "antd";
-import { Context } from "../context/ContextSettings";
 const { Option } = AutoComplete;
 
-export const FormSearch = () => {
-    const {
-        listCity,
-        handleChange,
-        handlePeticion,
-        handleCity,
-        city,
-    } = useContext(Context);
+export const FormCity = ({
+    listCity,
+    handleChange,
+    handlePeticion,
+    handleCity,
+    city,
+}) => {
 
     return (
         <>

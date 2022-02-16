@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { Col, Row, Alert } from "antd";
-import {FormSearch} from "./components/Form";
 import { CardWeather } from "./components/CardWeather";
+import FormSearch from "./components/Form"
 
 import "./App.css";
 import { Context } from "./context/ContextSettings";
